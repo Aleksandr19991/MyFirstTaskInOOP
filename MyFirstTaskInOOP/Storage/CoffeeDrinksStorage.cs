@@ -35,7 +35,7 @@ namespace MyFirstTaskInOOP.Storage
 
         public void SaveDrinks(List<RecipeCoffeeDrinks> drinks)
         {
-            using (StreamWriter streamWriter = new StreamWriter("_filePath", false))
+            using (StreamWriter streamWriter = new StreamWriter(_filePath, false))
             {
                 string json = JsonSerializer.Serialize<List<RecipeCoffeeDrinks>>(drinks);
                 streamWriter.Write(json);
