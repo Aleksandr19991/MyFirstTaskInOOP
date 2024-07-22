@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyFirstTaskInOOP.Machines
 {
-    internal class CoffeeMaсhine
+    internal class CoffeeMaсhine: AbstractVendingMachine
     {
-        public int Id { get; private set; }
-
-        public string Name { get; set; }
-
         public double Water { get; set; }
 
         public double CoffeePowder { get; set; }
@@ -21,15 +17,15 @@ namespace MyFirstTaskInOOP.Machines
 
         public int Cup { get; set; }
 
-        public Dictionary<string, RecipeCoffeeDrinks> sampleCoffee {  get; set; }
+        public Dictionary<string, RecipeCoffeeDrinks> sampleCoffee { get; set; }
 
-        public CoffeeMaсhine(int id)
+        public CoffeeMaсhine(int id): base(id)
         {
             Water = 0;
             CoffeePowder = 0;
             Milk = 0;
             Cup = 0;
-            Id = id;
+
 
             sampleCoffee = new Dictionary<string, RecipeCoffeeDrinks>()
             { 
@@ -65,7 +61,7 @@ namespace MyFirstTaskInOOP.Machines
             };
         }
 
-        public void GetDrink(string name)
+        public override void GetDrink(string name)
         {
             if (sampleCoffee.ContainsKey(name))
             {

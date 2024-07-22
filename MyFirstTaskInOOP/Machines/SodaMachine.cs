@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyFirstTaskInOOP.Machines
 {
-    internal class SodaMachine
+    internal class SodaMachine: AbstractVendingMachine
     {
-        public int Id { get; private set; }
-
         public Dictionary<string, int> SodaDrinks { get; private set; }
 
-        public SodaMachine(int id, List<String> sodaNames) 
-        {
-            Id = id;
+        public SodaMachine(int id, List<String> sodaNames): base(id)
+        {  
 
             SodaDrinks = new Dictionary<string, int>();
 
@@ -24,7 +21,7 @@ namespace MyFirstTaskInOOP.Machines
             }
         }
 
-        public void Refresh(string name, int amount)
+        public override void Refresh(string name, int amount)
         {
             if (SodaDrinks.ContainsKey(name))
             {
@@ -32,7 +29,7 @@ namespace MyFirstTaskInOOP.Machines
             }
         }
 
-        public void GetDrink(string name)
+        public override void GetDrink(string name)
         {
             if (SodaDrinks.ContainsKey(name) && SodaDrinks[name]>0) 
             {

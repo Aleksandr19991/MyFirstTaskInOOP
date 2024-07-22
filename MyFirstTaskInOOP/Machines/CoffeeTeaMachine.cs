@@ -9,12 +9,8 @@ using MyFirstTaskInOOP.Modeles;
 
 namespace MyFirstTaskInOOP.Machines
 {
-    internal class CoffeeTeaMachine
+    internal class CoffeeTeaMachine: AbstractVendingMachine
     {
-        public int Id { get; private set; }
-
-        public string Name { get; set; }
-
         public double Water { get; set; }
 
         public double CoffeePowder { get; set; }
@@ -25,18 +21,17 @@ namespace MyFirstTaskInOOP.Machines
 
         public int Cup { get; set; }
 
-        public Dictionary<string, RecipeCoffeeTeaDrinks> sampleCoffeeTea { get; set; }
+        public Dictionary<string, RecipeCoffeeTeaDrinks> sampleCoffee { get; set; }
 
-        public CoffeeTeaMachine(int id)
+        public CoffeeTeaMachine(int id): base(id)
         {
             Water = 0;
             CoffeePowder = 0;
             Milk = 0;
             Tea = 0;
             Cup = 0;
-            Id = id;
 
-            sampleCoffeeTea = new Dictionary<string, RecipeCoffeeTeaDrinks>()
+            sampleCoffee = new Dictionary<string, RecipeCoffeeTeaDrinks>()
             {
                {
                     "Latte",
@@ -79,11 +74,11 @@ namespace MyFirstTaskInOOP.Machines
             };
         }
 
-        public void GetDrink(string name)
+        public override void GetDrink(string name)
         {
-            if (sampleCoffeeTea.ContainsKey(name))
+            if (sampleCoffee.ContainsKey(name))
             {
-                RecipeCoffeeTeaDrinks Drink = sampleCoffeeTea[name];
+                RecipeCoffeeTeaDrinks Drink = sampleCoffee[name];
 
                 if (Water >= Drink.Water
                     && CoffeePowder >= Drink.CoffeePowder
