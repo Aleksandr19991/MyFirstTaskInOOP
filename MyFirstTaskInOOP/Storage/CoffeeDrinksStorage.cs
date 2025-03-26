@@ -1,14 +1,9 @@
 ﻿using MyFirstTaskInOOP.Modeles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MyFirstTaskInOOP.Storage
 {
-    internal class CoffeeDrinksStorage
+    public class CoffeeDrinksStorage
     {
         private const string _filePath = "C:\\Users\\Александр\\Desktop\\failik.json";
 
@@ -43,7 +38,7 @@ namespace MyFirstTaskInOOP.Storage
         }
 
         public void AddDrink(RecipeCoffeeDrinks coffeeDrinks)
-        { 
+        {
             List<RecipeCoffeeDrinks> drinks = GetAllDrinks();
             drinks.Add(coffeeDrinks);
             SaveDrinks(drinks);

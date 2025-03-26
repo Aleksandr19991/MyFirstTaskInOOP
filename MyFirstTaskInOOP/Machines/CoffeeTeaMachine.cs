@@ -1,15 +1,8 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyFirstTaskInOOP.Machines;
-using MyFirstTaskInOOP.Modeles;
+﻿using MyFirstTaskInOOP.Modeles;
 
 namespace MyFirstTaskInOOP.Machines
 {
-    internal class CoffeeTeaMachine: AbstractVendingMachine
+    public class CoffeeTeaMachine : AbstractVendingMachine
     {
         public double Water { get; set; }
 
@@ -23,7 +16,7 @@ namespace MyFirstTaskInOOP.Machines
 
         public Dictionary<string, RecipeCoffeeTeaDrinks> sampleCoffee { get; set; }
 
-        public CoffeeTeaMachine(int id): base(id)
+        public CoffeeTeaMachine(int id, string name) : base(id, name)
         {
             Water = 0;
             CoffeePowder = 0;
@@ -115,4 +108,3 @@ namespace MyFirstTaskInOOP.Machines
         }
     }
 }
-

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyFirstTaskInOOP.Machines;
-using MyFirstTaskInOOP.Modeles;
-
-namespace MyFirstTaskInOOP.Modeles
+﻿namespace MyFirstTaskInOOP.Modeles
 {
-    internal class RecipeCoffeeTeaDrinks
+    public class RecipeCoffeeTeaDrinks
     {
         public string Name { get; set; }
 

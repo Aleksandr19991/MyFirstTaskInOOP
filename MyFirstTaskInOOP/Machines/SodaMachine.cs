@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyFirstTaskInOOP.Machines
+﻿namespace MyFirstTaskInOOP.Machines
 {
-    internal class SodaMachine: AbstractVendingMachine
+    public class SodaMachine : AbstractVendingMachine
     {
         public Dictionary<string, int> SodaDrinks { get; private set; }
 
-        public SodaMachine(int id, List<String> sodaNames): base(id)
-        {  
+        List<String> sodaNames;
 
+        public SodaMachine(int id, string name, List<String> sodaNames) : base(id, name)
+        {
             SodaDrinks = new Dictionary<string, int>();
 
-            foreach (string sodaName in sodaNames) 
+            foreach (string sodaName in sodaNames)
             {
                 SodaDrinks.Add(sodaName, 0);
             }
         }
 
-        public override void Refresh(string name, int amount)
+        public void Refresh(string name, int amount)
         {
             if (SodaDrinks.ContainsKey(name))
             {
@@ -31,12 +26,12 @@ namespace MyFirstTaskInOOP.Machines
 
         public override void GetDrink(string name)
         {
-            if (SodaDrinks.ContainsKey(name) && SodaDrinks[name]>0) 
+            if (SodaDrinks.ContainsKey(name) && SodaDrinks[name] > 0)
             {
                 SodaDrinks[name]--;
                 Console.WriteLine($"{Id}: Получите Ваш {name}!");
             }
-            else 
+            else
             {
                 Console.WriteLine($"Такого напитка нет!");
             }

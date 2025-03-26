@@ -1,13 +1,9 @@
 ﻿using MyFirstTaskInOOP.Modeles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MyFirstTaskInOOP.Machines
 {
-    internal class CoffeeMaсhine: AbstractVendingMachine
+    public class CoffeeMaсhine : AbstractVendingMachine
     {
         public double Water { get; set; }
 
@@ -19,16 +15,15 @@ namespace MyFirstTaskInOOP.Machines
 
         public Dictionary<string, RecipeCoffeeDrinks> sampleCoffee { get; set; }
 
-        public CoffeeMaсhine(int id): base(id)
+        public CoffeeMaсhine(int id, string name) : base(id, name)
         {
             Water = 0;
             CoffeePowder = 0;
             Milk = 0;
             Cup = 0;
 
-
             sampleCoffee = new Dictionary<string, RecipeCoffeeDrinks>()
-            { 
+            {
                {
                     "Latte",
                     new RecipeCoffeeDrinks ()

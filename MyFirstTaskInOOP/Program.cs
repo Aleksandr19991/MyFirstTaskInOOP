@@ -17,6 +17,8 @@ namespace MyFirstTaskInOOP
                 Milk = 10,
                 Cup = 1,
             });
+
+            VendingMachineService machine = new VendingMachineService();
         }
     }
 }

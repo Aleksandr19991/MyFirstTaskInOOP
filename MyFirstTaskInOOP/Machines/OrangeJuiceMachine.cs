@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyFirstTaskInOOP.Machines
+﻿namespace MyFirstTaskInOOP.Machines
 {
-    internal class OrangeJuiceMachine: AbstractVendingMachine
+    public class OrangeJuiceMachine : AbstractVendingMachine
     {
         public int OrangeAmount { get; private set; }
 
@@ -14,13 +8,13 @@ namespace MyFirstTaskInOOP.Machines
 
         public string _name = "Апельсиновый сок";
 
-        public OrangeJuiceMachine (int id) : base(id)
+        public OrangeJuiceMachine(int id, string name) : base(id, name)
         {
             OrangeAmount = 0;
             LastRefresh = DateTime.Now.DayOfYear;
         }
 
-        public override void Refresh(int orangeAmount)
+        public void Refresh(int orangeAmount)
         {
             OrangeAmount = orangeAmount;
             LastRefresh = DateTime.Now.DayOfYear;
@@ -28,12 +22,12 @@ namespace MyFirstTaskInOOP.Machines
 
         public override void GetDrink(string name)
         {
-            if (OrangeAmount >= 3) 
+            if (OrangeAmount >= 3)
             {
                 OrangeAmount -= 3;
                 Console.WriteLine($"Возьмите Ваш {_name}!");
             }
-            else 
+            else
             {
                 Console.WriteLine($"{Id}: Напиток недоступен");
             }
